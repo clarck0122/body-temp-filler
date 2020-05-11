@@ -25,6 +25,7 @@ class FillForm(threading.Thread):
 		# driver = webdriver.Chrome()
 
 		# for Heroku run
+		# https://stackoverflow.com/questions/41059144/running-chromedriver-with-python-selenium-on-heroku
 		chrome_options = webdriver.ChromeOptions()
 		chrome_options.binary_location = GOOGLE_CHROME_BIN
 		chrome_options.add_argument('--disable-gpu')
