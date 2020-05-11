@@ -17,7 +17,7 @@ class FillForm(threading.Thread):
 		self.Teamperature = str(random.randint(355,365)/10)
 
 	def run(self):
-		delay = random.randint(0,10)
+		delay = random.randint(30,300)
 		print ("Starting " + self.objUser.name + ", delay=" + str(delay))
 		time.sleep(delay)
 
@@ -50,10 +50,10 @@ class FillForm(threading.Thread):
 
 		# submit
 		element = driver.find_element_by_xpath("//a[@role='button'][contains(text(), '呈報 Submit')]")
-		# element.click()
+		element.click()
 
 		# confirm
-		wait = WebDriverWait(driver, 10)
+		wait = WebDriverWait(driver, 30)
 		try:
 			wait.until(lambda driver: driver.current_url != URL)
 		except Exception as e:
