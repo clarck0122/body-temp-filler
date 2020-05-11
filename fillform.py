@@ -8,6 +8,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 import time
 import random
+import os
 
 class FillForm(threading.Thread):
 	def __init__(self, objUser : User, objSystem : User):
@@ -27,10 +28,10 @@ class FillForm(threading.Thread):
 		# for Heroku run
 		# https://stackoverflow.com/questions/41059144/running-chromedriver-with-python-selenium-on-heroku
 		chrome_options = webdriver.ChromeOptions()
-		chrome_options.binary_location = GOOGLE_CHROME_BIN
+		chrome_options.binary_location = os.environ['GOOGLE_CHROME_BIN']
 		chrome_options.add_argument('--disable-gpu')
 		chrome_options.add_argument('--no-sandbox')
-		driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
+		driver = webdriver.Chrome(executable_path= os.environ['CHROMEDRIVER_PATH'], chrome_options=chrome_options)
 
 		URL = "https://" + self.objUser.id + ":" + self.objUser.pw + "@mobile01.umc.com/udtrs.nsf"
 		driver.get(URL)
