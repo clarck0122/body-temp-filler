@@ -27,11 +27,13 @@ class FillForm(threading.Thread):
 
 		# for Heroku run
 		# https://stackoverflow.com/questions/41059144/running-chromedriver-with-python-selenium-on-heroku
+		# https://www.youtube.com/watch?v=Ven-pqwk3ec
 		chrome_options = webdriver.ChromeOptions()
-		chrome_options.binary_location = os.environ['GOOGLE_CHROME_BIN']
-		chrome_options.add_argument('--disable-gpu')
-		chrome_options.add_argument('--no-sandbox')
-		driver = webdriver.Chrome(executable_path= os.environ['CHROMEDRIVER_PATH'], chrome_options=chrome_options)
+		chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+		chrome_options.add_argument("--headless")
+		chrome_options.add_argument("--disable-dev-shm-usage")
+		chrome_options.add_argument("--no-sandbox")
+		driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
 		URL = "https://" + self.objUser.id + ":" + self.objUser.pw + "@mobile01.umc.com/udtrs.nsf"
 		driver.get(URL)
