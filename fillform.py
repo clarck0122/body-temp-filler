@@ -17,11 +17,20 @@ class FillForm(threading.Thread):
 		self.Teamperature = str(random.randint(355,365)/10)
 
 	def run(self):
-		delay = random.randint(30,300)
+		delay = random.randint(0,30)
 		print ("Starting " + self.objUser.name + ", delay=" + str(delay))
 		time.sleep(delay)
 
-		driver = webdriver.Chrome()
+		# # for local run
+		# driver = webdriver.Chrome()
+
+		# for Heroku run
+		chrome_options = webdriver.ChromeOptions()
+		chrome_options.add_argument('--disable-gpu')
+		chrome_options.add_argument('--no-sandbox')
+		chrome_options.binary_location = GOOGLE_CHROME_PATH
+		driver = webdriver.Chrome(execution_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
+
 		URL = "https://" + self.objUser.id + ":" + self.objUser.pw + "@mobile01.umc.com/udtrs.nsf"
 		driver.get(URL)
 
@@ -79,17 +88,17 @@ class FillForm(threading.Thread):
 		print ("Exiting " + self.objUser.name)
 
 
-if __name__ == "__main__":
-	user = User()
-	user.id = "00045217"
-	user.pw = "123938619"
-	user.name = "vulhjp"
-	user.email = "vulhjp0122@hotmail.com"
+# if __name__ == "__main__":
+# 	user = User()
+# 	user.id = "00045217"
+# 	user.pw = "123938619"
+# 	user.name = "vulhjp"
+# 	user.email = "vulhjp0122@hotmail.com"
 
-	sys = User()
-	sys.name = "clarck"
-	sys.email = "clarck5566@gmail.com"
-	sys.pw = "jo4gk6ai7"
+# 	sys = User()
+# 	sys.name = "clarck"
+# 	sys.email = "clarck5566@gmail.com"
+# 	sys.pw = "jo4gk6ai7"
 
-	thread1 = FillForm(user, sys)
-	thread1.start()
+# 	thread1 = FillForm(user, sys)
+# 	thread1.start()
