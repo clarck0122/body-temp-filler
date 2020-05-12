@@ -10,18 +10,29 @@ import time
 import random
 import os
 
+import logging
+from logging.handlers import RotatingFileHandler
+
+logger = logging.getLogger(os.path.basename(__file__))
+logging.basicConfig(
+        handlers=[RotatingFileHandler('./' + os.path.basename(__file__) + '.log', maxBytes=100000, backupCount=10)],
+        level=logging.INFO,
+        format="[%(asctime)s] %(levelname)s [%(name)s.%(funcName)s:%(lineno)d] %(message)s",
+        datefmt='%Y-%m-%dT%H:%M:%S')
+logging.getLogger().addHandler(logging.StreamHandler())
+
 class FillForm(threading.Thread):
 	def __init__(self, objUser : User, objSystem : User):
 		threading.Thread.__init__(self)
 		self.objUser = objUser
 		self.objSystem = objSystem
 		self.Teamperature = str(random.randint(355,365)/10)
-		print("objUser, id={}, name={}, pw={}, email={}".format(self.objUser.id, self.objUser.name, self.objUser.pw, self.objUser.email) )
-		print("objSystem, id={}, name={}, pw={}, email={}".format(self.objSystem.id, self.objSystem.name, self.objSystem.pw, self.objSystem.email) )
+		logger.info("objUser, id={}, name={}, pw={}, email={}".format(self.objUser.id, self.objUser.name, self.objUser.pw, self.objUser.email) )
+		logger.info("objSystem, id={}, name={}, pw={}, email={}".format(self.objSystem.id, self.objSystem.name, self.objSystem.pw, self.objSystem.email) )
 
 	def run(self):
 		delay = random.randint(60,120)
-		print ("Starting " + self.objUser.name + ", delay=" + str(delay) + ", Teamperature=" + self.Teamperature)
+		logger.info ("Starting " + self.objUser.name + ", delay=" + str(delay) + ", Teamperature=" + self.Teamperature)
 		time.sleep(delay)
 
 		# # for local run
@@ -45,7 +56,7 @@ class FillForm(threading.Thread):
 		try:
 			wait.until(lambda driver: driver.current_url != URL)
 		except Exception as e:
-			print(e)
+			logger.info(e)
 
 		# redirect to new page
 		URL = "https://mobile01.umc.com/udtrs.nsf/DTRF?open&"
@@ -72,28 +83,28 @@ class FillForm(threading.Thread):
 		try:
 			wait.until(lambda driver: driver.current_url != URL)
 		except Exception as e:
-			print(e)
+			logger.info(e)
 		element = driver.find_elements_by_xpath("//h1")
 		res = False
 		for e in element:
-			print(e.text)
+			logger.info(e.text)
 			if "Normal" in e.text:
 				res = True
 
 		# content = Mail()
 		# if res:
-		# 	print("pass")
+		# 	logger.info("pass")
 		# 	content.subject = "Sucess: Fill Body Teamperature"
 		# 	content.content = "Today teamperature is " + self.Teamperature
 		# else:
-		# 	print("fail")
+		# 	logger.info("fail")
 		# 	content.subject = "Fail: Fill Body Teamperature"
 		# 	content.content = "please check system "
 
 		# mail = SendMail(self.objUser, self.objSystem, content)
 		# mail.start()
 		driver.close()
-		print ("Exiting " + self.objUser.name)
+		logger.info ("Exiting " + self.objUser.name)
 
 
 # if __name__ == "__main__":
@@ -105,8 +116,8 @@ class FillForm(threading.Thread):
 
 # 	sys = User()
 # 	sys.name = "clarck"
-# 	sys.email = "clarck5566@gmail.com"
-# 	sys.pw = "jo4gk6ai7"
+# 	sys.email = os.environ['SendMail_email']
+# 	sys.pw = os.environ['SendMail_pw']
 
 # 	thread1 = FillForm(user, sys)
 # 	thread1.start()

@@ -1,0 +1,14 @@
+[2020-05-12T22:32:19] INFO [fillform.py.__init__:30] objUser, id=00045217, name=clarck, pw=123938619, email=vulhjp0122@hotmail.com
+[2020-05-12T22:32:19] INFO [fillform.py.__init__:31] objSystem, id=, name=clarck, pw=jo4gk6ai7, email=clarck5566@gmail.com
+[2020-05-12T22:32:19] INFO [fillform.py.run:35] Starting clarck, delay=99, Teamperature=35.7
+[2020-05-12T22:32:46] INFO [fillform.py.__init__:30] objUser, id=00045217, name=clarck, pw=123938619, email=vulhjp0122@hotmail.com
+[2020-05-12T22:32:46] INFO [fillform.py.__init__:31] objSystem, id=, name=clarck, pw=jo4gk6ai7, email=clarck5566@gmail.com
+[2020-05-12T22:32:46] INFO [fillform.py.run:35] Starting clarck, delay=8, Teamperature=36.1
+[2020-05-12T22:33:13] INFO [fillform.py.__init__:30] objUser, id=00045217, name=clarck, pw=123938619, email=vulhjp0122@hotmail.com
+[2020-05-12T22:33:13] INFO [fillform.py.__init__:31] objSystem, id=, name=clarck, pw=jo4gk6ai7, email=clarck5566@gmail.com
+[2020-05-12T22:33:13] INFO [fillform.py.run:35] Starting clarck, delay=7, Teamperature=35.7
+[2020-05-12T22:33:57] INFO [fillform.py.run:86] Message: 
+
+[2020-05-12T22:33:57] INFO [fillform.py.run:90] 同仁體溫回報
+[2020-05-12T22:33:57] INFO [fillform.py.run:90] 
+[2020-05-12T22:33:59] INFO [fillform.py.run:107] Exiting clarck
