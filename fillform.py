@@ -16,6 +16,8 @@ class FillForm(threading.Thread):
 		self.objUser = objUser
 		self.objSystem = objSystem
 		self.Teamperature = str(random.randint(355,365)/10)
+		print("objUser, id={}, name={}, pw={}, email={}".format(self.objUser.id, self.objUser.name, self.objUser.pw, self.objUser.email) )
+		print("objSystem, id={}, name={}, pw={}, email={}".format(self.objSystem.id, self.objSystem.name, self.objSystem.pw, self.objSystem.email) )
 
 	def run(self):
 		delay = random.randint(0,30)
@@ -77,18 +79,19 @@ class FillForm(threading.Thread):
 			if "Normal" in e.text:
 				res = True
 
-		content = Mail()
-		if res:
-			print("pass")
-			content.subject = "Sucess: Fill Body Teamperature"
-			content.content = "Today teamperature is " + self.Teamperature
-		else:
-			print("fail")
-			content.subject = "Fail: Fill Body Teamperature"
-			content.content = "please check system "
+		# content = Mail()
+		# if res:
+		# 	print("pass")
+		# 	content.subject = "Sucess: Fill Body Teamperature"
+		# 	content.content = "Today teamperature is " + self.Teamperature
+		# else:
+		# 	print("fail")
+		# 	content.subject = "Fail: Fill Body Teamperature"
+		# 	content.content = "please check system "
 
-		mail = SendMail(self.objUser, self.objSystem, content)
-		mail.start()
+		# mail = SendMail(self.objUser, self.objSystem, content)
+		# mail.start()
+		driver.close()
 		print ("Exiting " + self.objUser.name)
 
 

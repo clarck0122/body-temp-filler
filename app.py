@@ -23,6 +23,7 @@ def main():
 		user.name = config[user.id]['name']
 		user.pw = config[user.id]['pw']
 		user.email = config[user.id]['email']
+		print("id={}, name={}, pw={}, email={}".format(user.id, user.name, user.pw, user.email) )
 		user_li.append(user)
 
 	threads = []
