@@ -4,6 +4,7 @@ from envelopes import Envelope, GMailSMTP
 import threading
 from clsData import User, Mail
 import time
+import os
 
 class SendMail(threading.Thread):
     def __init__(self, objUser : User, objSystem : User, objMail : Mail):
@@ -32,8 +33,8 @@ if __name__ == "__main__":
 
     sys = User()
     sys.name = "clarck"
-    sys.email = "clarck5566@gmail.com"
-    sys.pw = "jo4gk6ai7"
+    sys.email = os.environ['SendMail_email']
+    sys.pw = os.environ['SendMail_pw']
 
     mail_1 = Mail()
     mail_1.subject = "First thread"

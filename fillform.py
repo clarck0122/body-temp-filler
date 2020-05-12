@@ -20,8 +20,8 @@ class FillForm(threading.Thread):
 		print("objSystem, id={}, name={}, pw={}, email={}".format(self.objSystem.id, self.objSystem.name, self.objSystem.pw, self.objSystem.email) )
 
 	def run(self):
-		delay = random.randint(0,30)
-		print ("Starting " + self.objUser.name + ", delay=" + str(delay))
+		delay = random.randint(60,120)
+		print ("Starting " + self.objUser.name + ", delay=" + str(delay) + ", Teamperature=" + self.Teamperature)
 		time.sleep(delay)
 
 		# # for local run
@@ -76,6 +76,7 @@ class FillForm(threading.Thread):
 		element = driver.find_elements_by_xpath("//h1")
 		res = False
 		for e in element:
+			print(e.text)
 			if "Normal" in e.text:
 				res = True
 
