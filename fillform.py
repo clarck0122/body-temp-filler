@@ -103,6 +103,7 @@ class FillForm(threading.Thread):
 
 		# mail = SendMail(self.objUser, self.objSystem, content)
 		# mail.start()
+		
 		driver.close()
 		logger.info ("Exiting " + self.objUser.name)
 
