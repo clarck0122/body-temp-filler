@@ -28,10 +28,10 @@ class FillForm(threading.Thread):
 		self.objSystem = objSystem
 		self.Teamperature = str(random.randint(355,365)/10)
 		logger.info("objUser, id={}, name={}, pw={}, email={}".format(self.objUser.id, self.objUser.name, self.objUser.pw, self.objUser.email) )
-		logger.info("objSystem, id={}, name={}, pw={}, email={}".format(self.objSystem.id, self.objSystem.name, self.objSystem.pw, self.objSystem.email) )
+		logger.info("objSystem, id={}, name={}, pw={}, email={}".format(self.objSystem.id, self.objSystem.name, "*******", self.objSystem.email) )
 
 	def run(self):
-		delay = random.randint(60,120)
+		delay = random.randint(120,300)
 		logger.info ("Starting " + self.objUser.name + ", delay=" + str(delay) + ", Teamperature=" + self.Teamperature)
 		time.sleep(delay)
 
@@ -58,6 +58,7 @@ class FillForm(threading.Thread):
 		except Exception as e:
 			logger.info(e)
 
+		time.sleep(3)
 		# redirect to new page
 		URL = "https://mobile01.umc.com/udtrs.nsf/DTRF?open&"
 		driver.get(URL)
