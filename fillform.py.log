@@ -12,3 +12,62 @@
 [2020-05-12T22:33:57] INFO [fillform.py.run:90] 同仁體溫回報
 [2020-05-12T22:33:57] INFO [fillform.py.run:90] 
 [2020-05-12T22:33:59] INFO [fillform.py.run:107] Exiting clarck
+[2020-06-11T22:49:48] INFO [fillform.py.__init__:30] objUser, id=00045217, name=vulhjp, pw=123938619, email=vulhjp0122@hotmail.com
+[2020-06-11T22:49:48] INFO [fillform.py.__init__:31] objSystem, id=, name=clarck, pw=*******, email=clarck5566@gmail.com
+[2020-06-11T22:49:48] INFO [fillform.py.run:35] Starting vulhjp, delay=222, Teamperature=35.9
+[2020-06-11T22:50:30] INFO [fillform.py.__init__:30] objUser, id=00045217, name=vulhjp, pw=123938619, email=vulhjp0122@hotmail.com
+[2020-06-11T22:50:30] INFO [fillform.py.__init__:31] objSystem, id=, name=clarck, pw=*******, email=clarck5566@gmail.com
+[2020-06-11T22:50:31] INFO [fillform.py.run:35] Starting vulhjp, delay=193, Teamperature=35.9
+[2020-06-11T22:51:01] INFO [fillform.py.__init__:30] objUser, id=00045217, name=vulhjp, pw=123938619, email=vulhjp0122@hotmail.com
+[2020-06-11T22:51:01] INFO [fillform.py.__init__:31] objSystem, id=, name=clarck, pw=*******, email=clarck5566@gmail.com
+[2020-06-11T22:51:20] INFO [fillform.py.__init__:30] objUser, id=00045217, name=vulhjp, pw=123938619, email=vulhjp0122@hotmail.com
+[2020-06-11T22:51:20] INFO [fillform.py.__init__:31] objSystem, id=, name=clarck, pw=*******, email=clarck5566@gmail.com
+[2020-06-11T22:51:30] INFO [fillform.py.__init__:30] objUser, id=00045217, name=vulhjp, pw=123938619, email=vulhjp0122@hotmail.com
+[2020-06-11T22:51:30] INFO [fillform.py.__init__:31] objSystem, id=, name=clarck, pw=*******, email=clarck5566@gmail.com
+[2020-06-11T22:59:19] INFO [fillform.py.__init__:30] objUser, id=00045217, name=vulhjp, pw=123938619, email=vulhjp0122@hotmail.com
+[2020-06-11T22:59:19] INFO [fillform.py.__init__:31] objSystem, id=, name=clarck, pw=*******, email=clarck5566@gmail.com
+[2020-06-11T23:00:16] INFO [fillform.py.__init__:30] objUser, id=00045217, name=vulhjp, pw=123938619, email=vulhjp0122@hotmail.com
+[2020-06-11T23:00:16] INFO [fillform.py.__init__:31] objSystem, id=, name=clarck, pw=*******, email=clarck5566@gmail.com
+[2020-06-11T23:15:41] INFO [fillform.py.__init__:32] objUser, id=00045217, name=vulhjp, pw=123938619, email=vulhjp0122@hotmail.com
+[2020-06-11T23:15:41] INFO [fillform.py.__init__:33] objSystem, id=, name=clarck, pw=*******, email=clarck5566@gmail.com
+[2020-06-11T23:17:16] INFO [fillform.py.__init__:32] objUser, id=00045217, name=vulhjp, pw=123938619, email=vulhjp0122@hotmail.com
+[2020-06-11T23:17:16] INFO [fillform.py.__init__:33] objSystem, id=, name=clarck, pw=*******, email=clarck5566@gmail.com
+[2020-06-11T23:17:41] INFO [fillform.py.__init__:32] objUser, id=00045217, name=vulhjp, pw=123938619, email=vulhjp0122@hotmail.com
+[2020-06-11T23:17:41] INFO [fillform.py.__init__:33] objSystem, id=, name=clarck, pw=*******, email=clarck5566@gmail.com
+[2020-06-11T23:18:27] INFO [fillform.py.ExeFill:95] Message: 
+
+[2020-06-11T23:18:27] INFO [fillform.py.ExeFill:99] 同仁體溫回報
+[2020-06-11T23:18:27] INFO [fillform.py.ExeFill:99] 
+[2020-06-11T23:18:50] INFO [fillform.py.ExeFill:125] Fill form fail, execute retry, current retry=1
+[2020-06-11T23:20:18] INFO [fillform.py.__init__:32] objUser, id=00045217, name=vulhjp, pw=123938619, email=vulhjp0122@hotmail.com
+[2020-06-11T23:20:18] INFO [fillform.py.__init__:33] objSystem, id=, name=clarck, pw=*******, email=clarck5566@gmail.com
+[2020-06-11T23:20:43] INFO [fillform.py.ExeFill:95] Message: 
+
+[2020-06-11T23:20:43] INFO [fillform.py.ExeFill:99] 同仁體溫回報
+[2020-06-11T23:20:43] INFO [fillform.py.ExeFill:99] 
+[2020-06-11T23:20:47] INFO [fillform.py.ExeFill:125] Fill form fail, execute retry, current retry=1
+[2020-06-11T23:21:17] INFO [fillform.py.ExeFill:95] Message: 
+
+[2020-06-11T23:21:17] INFO [fillform.py.ExeFill:99] 同仁體溫回報
+[2020-06-11T23:21:17] INFO [fillform.py.ExeFill:99] 
+[2020-06-11T23:21:22] INFO [fillform.py.ExeFill:125] Fill form fail, execute retry, current retry=2
+[2020-06-11T23:21:57] INFO [fillform.py.ExeFill:95] Message: 
+
+[2020-06-11T23:21:57] INFO [fillform.py.ExeFill:99] 同仁體溫回報
+[2020-06-11T23:21:57] INFO [fillform.py.ExeFill:99] 
+[2020-06-11T23:21:58] INFO [fillform.py.ExeFill:125] Fill form fail, execute retry, current retry=3
+[2020-06-11T23:22:26] INFO [fillform.py.ExeFill:95] Message: 
+
+[2020-06-11T23:22:26] INFO [fillform.py.ExeFill:99] 同仁體溫回報
+[2020-06-11T23:22:26] INFO [fillform.py.ExeFill:99] 
+[2020-06-11T23:22:29] INFO [fillform.py.ExeFill:125] Fill form fail, execute retry, current retry=4
+[2020-06-11T23:22:58] INFO [fillform.py.ExeFill:95] Message: 
+
+[2020-06-11T23:22:58] INFO [fillform.py.ExeFill:99] 同仁體溫回報
+[2020-06-11T23:22:58] INFO [fillform.py.ExeFill:99] 
+[2020-06-11T23:23:01] INFO [fillform.py.ExeFill:125] Fill form fail, execute retry, current retry=5
+[2020-06-11T23:23:31] INFO [fillform.py.ExeFill:95] Message: 
+
+[2020-06-11T23:23:31] INFO [fillform.py.ExeFill:99] 同仁體溫回報
+[2020-06-11T23:23:31] INFO [fillform.py.ExeFill:99] 
+[2020-06-11T23:23:36] INFO [fillform.py.ExeFill:123] Exiting vulhjp, Retry over times, Retry=6

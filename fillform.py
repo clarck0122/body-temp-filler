@@ -27,32 +27,40 @@ class FillForm(threading.Thread):
 		self.objUser = objUser
 		self.objSystem = objSystem
 		self.Teamperature = str(random.randint(355,365)/10)
+		self.Retry = 0
+		self.remark = ""
 		logger.info("objUser, id={}, name={}, pw={}, email={}".format(self.objUser.id, self.objUser.name, self.objUser.pw, self.objUser.email) )
 		logger.info("objSystem, id={}, name={}, pw={}, email={}".format(self.objSystem.id, self.objSystem.name, "*******", self.objSystem.email) )
 
 	def run(self):
-		delay = random.randint(120,300)
-		logger.info ("Starting " + self.objUser.name + ", delay=" + str(delay) + ", Teamperature=" + self.Teamperature)
-		time.sleep(delay)
+		if self.remark != "test":
+			delay = random.randint(120,300)
+			logger.info ("Starting " + self.objUser.name + ", delay=" + str(delay) + ", Teamperature=" + self.Teamperature)
+			time.sleep(delay)
+		self.ExeFill()
+	
 
-		# # for local run
-		# driver = webdriver.Chrome()
 
-		# for Heroku run
-		# https://stackoverflow.com/questions/41059144/running-chromedriver-with-python-selenium-on-heroku
-		# https://www.youtube.com/watch?v=Ven-pqwk3ec
-		chrome_options = webdriver.ChromeOptions()
-		chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-		chrome_options.add_argument("--headless")
-		chrome_options.add_argument("--disable-dev-shm-usage")
-		chrome_options.add_argument("--no-sandbox")
-		driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+	def ExeFill(self):
+		if self.remark == "test":
+			# for local run
+			driver = webdriver.Chrome()
+		else:
+			# for Heroku run
+			# https://stackoverflow.com/questions/41059144/running-chromedriver-with-python-selenium-on-heroku
+			# https://www.youtube.com/watch?v=Ven-pqwk3ec
+			chrome_options = webdriver.ChromeOptions()
+			chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+			chrome_options.add_argument("--headless")
+			chrome_options.add_argument("--disable-dev-shm-usage")
+			chrome_options.add_argument("--no-sandbox")
+			driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
 		URL = "https://" + self.objUser.id + ":" + self.objUser.pw + "@mobile01.umc.com/udtrs.nsf"
 		driver.get(URL)
 
 		# wait response
-		wait = WebDriverWait(driver, 30)
+		wait = WebDriverWait(driver, 10)
 		try:
 			wait.until(lambda driver: driver.current_url != URL)
 		except Exception as e:
@@ -80,7 +88,7 @@ class FillForm(threading.Thread):
 		element.click()
 
 		# confirm
-		wait = WebDriverWait(driver, 30)
+		wait = WebDriverWait(driver, 10)
 		try:
 			wait.until(lambda driver: driver.current_url != URL)
 		except Exception as e:
@@ -106,7 +114,18 @@ class FillForm(threading.Thread):
 		# mail.start()
 		
 		driver.close()
-		logger.info ("Exiting " + self.objUser.name)
+
+		if res:
+			logger.info ("Exiting " + self.objUser.name)
+		else:
+			self.Retry += 1
+			if self.Retry > 5:
+				logger.info ("Exiting {}, Retry over times, Retry={}".format(self.objUser.name, self.Retry))
+			else:
+				logger.info("Fill form fail, execute retry, current retry={}".format(self.Retry))
+				time.sleep(5)
+				self.ExeFill()
+
 
 
 # if __name__ == "__main__":
@@ -122,4 +141,5 @@ class FillForm(threading.Thread):
 # 	sys.pw = os.environ['SendMail_pw']
 
 # 	thread1 = FillForm(user, sys)
+# 	thread1.remark = "test"
 # 	thread1.start()
