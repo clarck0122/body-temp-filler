@@ -21,6 +21,8 @@ logging.basicConfig(
         datefmt='%Y-%m-%dT%H:%M:%S')
 logging.getLogger().addHandler(logging.StreamHandler())
 
+RETRY_LIMIT = int(os.environ['RETRY_LIMIT'])
+
 class FillForm(threading.Thread):
 	def __init__(self, objUser : User, objSystem : User):
 		threading.Thread.__init__(self)
@@ -35,7 +37,7 @@ class FillForm(threading.Thread):
 	def run(self):
 		if self.remark != "test":
 			delay = random.randint(120,300)
-			logger.info ("Starting " + self.objUser.name + ", delay=" + str(delay) + ", Teamperature=" + self.Teamperature)
+			logger.info ("Starting " + self.objUser.name + ", delay=" + str(delay) + ", Teamperature=" + self.Teamperature + ", RETRY_LIMIT=" + RETRY_LIMIT)
 			time.sleep(delay)
 		self.ExeFill()
 	
@@ -119,10 +121,10 @@ class FillForm(threading.Thread):
 			logger.info ("Exiting " + self.objUser.name)
 		else:
 			self.Retry += 1
-			if self.Retry > 5:
-				logger.info ("Exiting {}, Retry over times, Retry={}".format(self.objUser.name, self.Retry))
+			if self.Retry > RETRY_LIMIT:
+				logger.info ("Exiting {}, Retry over times, Retry={}, LIMIT={}".format(self.objUser.name, self.Retry, RETRY_LIMIT))
 			else:
-				logger.info("Fill form fail, execute retry, current retry={}".format(self.Retry))
+				logger.info("Fill form fail, execute retry, current retry={}, LIMIT={}".format(self.Retry, RETRY_LIMIT))
 				time.sleep(5)
 				self.ExeFill()
 
