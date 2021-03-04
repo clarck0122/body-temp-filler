@@ -37,7 +37,7 @@ class FillForm(threading.Thread):
 	def run(self):
 		if self.remark != "test":
 			delay = random.randint(120,300)
-			logger.info ("Starting " + self.objUser.name + ", delay=" + str(delay) + ", Teamperature=" + self.Teamperature + ", RETRY_LIMIT=" + RETRY_LIMIT)
+			logger.info ("Starting " + self.objUser.name + ", delay=" + str(delay) + ", Teamperature=" + self.Teamperature + ", RETRY_LIMIT=" + str(RETRY_LIMIT))
 			time.sleep(delay)
 		self.ExeFill()
 	
@@ -122,9 +122,9 @@ class FillForm(threading.Thread):
 		else:
 			self.Retry += 1
 			if self.Retry > RETRY_LIMIT:
-				logger.info ("Exiting {}, Retry over times, Retry={}, LIMIT={}".format(self.objUser.name, self.Retry, RETRY_LIMIT))
+				logger.info ("Exiting {}, Retry over times, Retry={}, LIMIT={}".format(self.objUser.name, self.Retry, str(RETRY_LIMIT)))
 			else:
-				logger.info("Fill form fail, execute retry, current retry={}, LIMIT={}".format(self.Retry, RETRY_LIMIT))
+				logger.info("Fill form fail, execute retry, current retry={}, LIMIT={}".format(self.Retry, str(RETRY_LIMIT)))
 				time.sleep(5)
 				self.ExeFill()
 
