@@ -92,3 +92,12 @@
 [2021-05-30T10:43:59] INFO [fillform.py.__init__:41] objSystem, id=, name=clarck, pw=*******, email=clarck5566@gmail.com, NowWeekday=6
 [2021-05-30T10:44:54] INFO [fillform.py.__init__:40] objUser, id=00045217, name=clarck, pw=123938619, email=, NowWeekday=6
 [2021-05-30T10:44:54] INFO [fillform.py.__init__:41] objSystem, id=, name=clarck, pw=*******, email=clarck5566@gmail.com, NowWeekday=6
+[2021-05-30T10:49:41] INFO [fillform.py.__init__:40] objUser, id=00045217, name=clarck, pw=123938619, email=, NowWeekday=6
+[2021-05-30T10:49:41] INFO [fillform.py.__init__:41] objSystem, id=, name=clarck, pw=*******, email=clarck5566@gmail.com, NowWeekday=6
+[2021-05-30T10:54:22] INFO [fillform.py.__init__:40] objUser, id=00045217, name=clarck, pw=123938619, email=, NowWeekday=6
+[2021-05-30T10:54:22] INFO [fillform.py.__init__:41] objSystem, id=, name=clarck, pw=*******, email=clarck5566@gmail.com, NowWeekday=6
+[2021-05-30T10:54:35] INFO [fillform.py.ExeFill:117] 同仁體溫回報
+[2021-05-30T10:54:35] INFO [fillform.py.ExeFill:117] 35.6 ℃
+[2021-05-30T10:54:35] INFO [fillform.py.ExeFill:117] 正常 Normal
+[2021-05-30T10:54:35] INFO [fillform.py.ExeFill:117] 
+[2021-05-30T10:54:36] INFO [fillform.py.ExeFill:137] Exiting clarck

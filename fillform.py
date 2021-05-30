@@ -102,7 +102,8 @@ class FillForm(threading.Thread):
 
 		# submit
 		element = driver.find_element_by_xpath("//a[@role='button'][contains(text(), '呈報 Submit')]")
-		element.click()
+		# element.click()
+		driver.execute_script("arguments[0].click();", element)
 
 		# confirm
 		wait = WebDriverWait(driver, 10)
