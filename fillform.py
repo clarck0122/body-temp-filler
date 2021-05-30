@@ -9,6 +9,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 import time
 import random
 import os
+import datetime
+import pytz
 
 import logging
 from logging.handlers import RotatingFileHandler
@@ -31,8 +33,12 @@ class FillForm(threading.Thread):
 		self.Teamperature = str(random.randint(355,365)/10)
 		self.Retry = 0
 		self.remark = ""
-		logger.info("objUser, id={}, name={}, pw={}, email={}".format(self.objUser.id, self.objUser.name, self.objUser.pw, self.objUser.email) )
-		logger.info("objSystem, id={}, name={}, pw={}, email={}".format(self.objSystem.id, self.objSystem.name, "*******", self.objSystem.email) )
+
+		tw = pytz.timezone('Asia/Taipei')
+		self.NowWeekday = tw.localize(datetime.datetime.now()).weekday()
+
+		logger.info("objUser, id={}, name={}, pw={}, email={}, NowWeekday={}".format(self.objUser.id, self.objUser.name, self.objUser.pw, self.objUser.email, self.NowWeekday) )
+		logger.info("objSystem, id={}, name={}, pw={}, email={}, NowWeekday={}".format(self.objSystem.id, self.objSystem.name, "*******", self.objSystem.email, self.NowWeekday) )
 
 	def run(self):
 		if self.remark != "test":
@@ -46,7 +52,9 @@ class FillForm(threading.Thread):
 	def ExeFill(self):
 		if self.remark == "test":
 			# for local run
-			driver = webdriver.Chrome()
+			# driver = webdriver.Chrome()
+			driver = webdriver.Chrome("D:\Code\chromedriver_win32\chromedriver.exe")
+			
 		else:
 			# for Heroku run
 			# https://stackoverflow.com/questions/41059144/running-chromedriver-with-python-selenium-on-heroku
@@ -76,10 +84,17 @@ class FillForm(threading.Thread):
 		# click radio buttuom
 		element = driver.find_elements_by_xpath("//input[@type='radio'][@value='No']")
 		# view element
-		element
+		# element
 		for e in element:
 			driver.execute_script("arguments[0].click();", e)
 			time.sleep(1)
+
+		if self.NowWeekday < 5:
+			element = driver.find_element_by_xpath("//input[@type='radio'][@value='Office']")
+		else:
+			element = driver.find_element_by_xpath("//input[@type='radio'][@value='Leave']")
+		driver.execute_script("arguments[0].click();", element)
+		time.sleep(1)
 
 		# input teamperature
 		element = driver.find_element_by_xpath("//input[@id='Temperature']")
