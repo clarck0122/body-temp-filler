@@ -101,3 +101,12 @@
 [2021-05-30T10:54:35] INFO [fillform.py.ExeFill:117] ¥¿±` Normal
 [2021-05-30T10:54:35] INFO [fillform.py.ExeFill:117] 
 [2021-05-30T10:54:36] INFO [fillform.py.ExeFill:137] Exiting clarck
+[2021-06-08T21:13:48] INFO [fillform.py.__init__:40] objUser, id=00045217, name=Clarck, pw=123938619, email=, NowWeekday=1
+[2021-06-08T21:19:12] INFO [fillform.py.__init__:43] objUser, id=00045217, name=Clarck, pw=123938619, email=, NowWeekday=2
+[2021-06-08T21:19:35] INFO [fillform.py.__init__:44] objSystem, id=, name=clarck, pw=*******, email=clarck5566@gmail.com, NowWeekday=2
+[2021-06-08T21:19:37] INFO [fillform.py.__init__:43] objUser, id=00041928, name=Elvis, pw=123387952, email=, NowWeekday=2
+[2021-06-08T21:19:43] INFO [fillform.py.__init__:44] objSystem, id=, name=clarck, pw=*******, email=clarck5566@gmail.com, NowWeekday=2
+[2021-06-08T21:21:49] INFO [fillform.py.__init__:43] objUser, id=00045217, name=Clarck, pw=123938619, email=, NowWeekday=2
+[2021-06-08T21:21:49] INFO [fillform.py.__init__:44] objSystem, id=, name=clarck, pw=*******, email=clarck5566@gmail.com, NowWeekday=2
+[2021-06-08T21:21:50] INFO [fillform.py.__init__:43] objUser, id=00041928, name=Elvis, pw=123387952, email=, NowWeekday=2
+[2021-06-08T21:21:52] INFO [fillform.py.__init__:44] objSystem, id=, name=clarck, pw=*******, email=clarck5566@gmail.com, NowWeekday=2

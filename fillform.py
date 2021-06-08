@@ -34,8 +34,11 @@ class FillForm(threading.Thread):
 		self.Retry = 0
 		self.remark = ""
 
-		tw = pytz.timezone('Asia/Taipei')
-		self.NowWeekday = tw.localize(datetime.datetime.now()).weekday()
+		# tw = pytz.timezone('Asia/Taipei')
+		# self.NowWeekday = tw.localize(datetime.datetime.now()).weekday()
+
+		# UTC to Asia/Taipei
+		self.NowWeekday = (datetime.datetime.now() + datetime.timedelta(hours = 8)).weekday()
 
 		logger.info("objUser, id={}, name={}, pw={}, email={}, NowWeekday={}".format(self.objUser.id, self.objUser.name, self.objUser.pw, self.objUser.email, self.NowWeekday) )
 		logger.info("objSystem, id={}, name={}, pw={}, email={}, NowWeekday={}".format(self.objSystem.id, self.objSystem.name, "*******", self.objSystem.email, self.NowWeekday) )
@@ -53,7 +56,8 @@ class FillForm(threading.Thread):
 		if self.remark == "test":
 			# for local run
 			# driver = webdriver.Chrome()
-			driver = webdriver.Chrome("D:\Code\chromedriver_win32\chromedriver.exe")
+			# driver = webdriver.Chrome("D:\Code\chromedriver_win32\chromedriver.exe")
+			driver = webdriver.Chrome("/home/clarck/Code/chromedriver")
 			
 		else:
 			# for Heroku run
@@ -103,7 +107,7 @@ class FillForm(threading.Thread):
 		# submit
 		element = driver.find_element_by_xpath("//a[@role='button'][contains(text(), '呈報 Submit')]")
 		# element.click()
-		driver.execute_script("arguments[0].click();", element)
+		if self.remark != "test": driver.execute_script("arguments[0].click();", element)
 
 		# confirm
 		wait = WebDriverWait(driver, 10)

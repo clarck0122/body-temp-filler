@@ -9,9 +9,8 @@ import os
 def main():
 	config = configparser.ConfigParser()
 	config.read('Startup.ini')
-	# id_li = config['Common']['User'].split(",")
-	id_li = os.environ['User'].split(",")
-	
+
+	name_li = os.environ['UserNames'].split(",")
 
 	objSys = User()
 	objSys.name = "clarck"
@@ -19,14 +18,11 @@ def main():
 	objSys.pw = os.environ['SendMail_pw']
 
 	user_li = []
-	for user_id in id_li:
+	for name in name_li:
 		user = User()
-		user.id = user_id
-		# user.name = config[user.id]['name']
-		# user.pw = config[user.id]['pw']
-		user.name = os.environ[user.id + '_name']
-		user.pw = os.environ[user.id + '_pw']
-		# user.email = config[user.id]['email']
+		user.name = name
+		user.id = os.environ[user.name + '_id']
+		user.pw = os.environ[user.name + '_pw']
 		print("id={}, name={}, pw={}, email={}".format(user.id, user.name, user.pw, user.email) )
 		user_li.append(user)
 
